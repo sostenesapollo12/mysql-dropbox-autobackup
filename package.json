@@ -2,5 +2,23 @@
   "name": "mysql-autobackup-dropbox",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dropbox": "^4.0.30",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.24.0",
+    "mysqldump": "^3.1.0",
+    "request": "^2.88.0",
+    "winser": "^1.0.3"
+  },
+  "scripts": {
+    "test": "nodemon index.js",
+    "test": "nodemon index.js",
+    "postinstall": "winser -i -s -c",
+    "preuninstall": "winser -r -x -s"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
