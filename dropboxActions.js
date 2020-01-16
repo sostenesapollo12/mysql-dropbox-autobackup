@@ -28,8 +28,6 @@ module.exports =
         save(dir, filename, file) {
             return new Promise((resolve, reject) => {
                 var content = fs.readFileSync(dir + filename);
-                // console.log(filename);
-                // console.log(content.toString();                
                 let options = {
                     method: "POST",
                     url: 'https://content.dropboxapi.com/2/files/upload',
@@ -37,7 +35,6 @@ module.exports =
                         "Content-Type": "application/octet-stream",
                         "Authorization": "Bearer " + this.apikey,
                         "Dropbox-API-Arg": "{\"path\": \"/backupapi/" + this.thisfoldername + "/" + filename + "\",\"mode\": \"overwrite\",\"autorename\": true,\"mute\": false}"
-                        //   "Dropbox-API-Arg": "{\"path\": \"/Sale2__Databases/"+userCode+"/"+file+"\",\"mode\": \"overwrite\",\"autorename\": true,\"mute\": false}"
                     },
                     body: content
                 };
@@ -53,23 +50,3 @@ module.exports =
             })
         }
     }
-
-// function readFile(file) {
-// 	var options = {
-// 	  method: "POST",
-// 	  url: 'https://content.dropboxapi.com/2/files/download',
-// 	  headers: {        
-// 	    "Authorization": "Bearer " + key,
-// 	    'Dropbox-API-Arg': '{"path":"'+file+'"}'
-// 	  }  
-// 	}
-// 	return new Promise((resolve, reject)=>{		
-// 		request(options,function(err, res,body){
-// 		  if(err) {
-// 		    reject(err)
-// 		  } else {
-// 		    resolve(body)
-// 		  }      
-// 		})   
-// 	})
-// }	
